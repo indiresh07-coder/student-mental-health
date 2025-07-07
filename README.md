@@ -6,7 +6,6 @@ It was completed as part of a DataCamp project.
 
 ## 🔧 Tools Used
 - SQL (DataCamp SQL Editor)
-- SQLite / PostgreSQL (mention the one used)
 
 ## 📊 Project Objective
 To identify patterns in student mental health based on factors like sleep, gender, screen time, and academic pressure.
