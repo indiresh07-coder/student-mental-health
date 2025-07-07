@@ -1,24 +1,27 @@
-# student-mental-health
-# Student Mental Health: SQL Data Analysis
+# Student Mental Health SQL Analysis
 
-This project analyzes a dataset related to student mental health using SQL.  
-It was completed as part of a DataCamp project.
+This project explores how living arrangements affect mental health outcomes for international students, based on a dataset from a DataCamp project.
 
-## 🔧 Tools Used
-- SQL (DataCamp SQL Editor)
+## 📌 Objective
+To analyze whether students' living conditions correlate with levels of depression, self-concept, and anxiety.
 
-## 📊 Project Objective
-To identify patterns in student mental health based on factors like sleep, gender, screen time, and academic pressure.
+## 🧠 SQL Query Summary
 
-## 📁 What’s in This Repo
-- `mental_health_analysis.sql`: The SQL queries used to extract insights
-- `project_summary.md`: Summary of insights from the analysis
+The query groups international students (`inter_dom = 'Inter'`) by their living arrangement (`stay`) and calculates:
+- `COUNT(*)`: Number of students in each group
+- `AVG(todep)`: Average PHQ depression score
+- `AVG(tosc)`: Average Self-Concept Scale score
+- `AVG(toas)`: Average Anxiety Scale score
 
-## 📌 Key Insights
-- Students with <6 hours of sleep had 2x stress levels
-- Female students reported higher anxiety on average
-- Increased screen time correlated with more stress
+### Sample Query Used
 
-## 🚀 How to Use
-You can run the SQL code using any SQLite/PostgreSQL editor. The dataset used was part of a DataCamp project on student mental health.
-
+```sql
+SELECT stay, 
+       COUNT(*) AS count_int,
+       ROUND(AVG(todep), 2) AS average_phq, 
+       ROUND(AVG(tosc), 2) AS average_scs, 
+       ROUND(AVG(toas), 2) AS average_as
+FROM students
+WHERE inter_dom = 'Inter'
+GROUP BY stay
+ORDER BY stay DESC;
